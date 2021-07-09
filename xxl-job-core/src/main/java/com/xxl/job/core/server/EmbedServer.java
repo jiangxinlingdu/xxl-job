@@ -86,6 +86,7 @@ public class EmbedServer {
                     logger.info(">>>>>>>>>>> xxl-job remoting server start success, nettype = {}, port = {}", EmbedServer.class, port);
 
                     // start registry
+                    //client 启动 service 的时候注册到 admin
                     startRegistry(appname, address);
 
                     // wait util stop
