@@ -107,7 +107,8 @@ public class JobScheduleHelper {
                                     refreshNextValidTime(jobInfo, new Date());
                                     logger.error(">>>>>>>>>>> xxl-job, jobId = {},triggerNextTime= {}", jobInfo.getId(), sdf.get().format(new Date(jobInfo.getTriggerNextTime())));
 
-                                } else if (nowTime > jobInfo.getTriggerNextTime()) {
+                                } else if (nowTime >= jobInfo.getTriggerNextTime()) {
+                                    //这里判断  >= 比仅仅是 > 更合理
                                     // 满足执行条件了，立马执行
                                     // 2.2、trigger-expire < 5s：direct-trigger && make next-trigger-time
 
